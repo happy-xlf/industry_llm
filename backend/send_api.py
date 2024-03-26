@@ -34,7 +34,25 @@ def get_post(message: str):
         print(f"请求向量数据失败，错误原因：{e}")
 
 
-if __name__ == '__main__':
-    message= "给我2023年8月9日的数据"
-    # message= "给我2023年8月的数据"
-    print(get_post(message))
+def get_month_api(message: str):
+    try:
+        # embedding url
+        url = "http://localhost:8080/get_month/"
+        body = {
+            "text": message
+        }
+        # 请求失败时，可重试3次
+        s = requests.Session()
+        s.mount("https://", HTTPAdapter(max_retries=Retry(total=3, allowed_methods=frozenset(['POST']))))
+        # 获取embedding响应
+        response = s.post(url, json=body)
+        data = response.json()
+        return data
+    except Exception as e:
+        logger.error(f"请求向量数据失败，错误原因：{e}")
+        print(f"请求向量数据失败，错误原因：{e}")
+
+# if __name__ == '__main__':
+#     message= "给我2023年8月9日的数据"
+#     # message= "给我2023年8月的数据"
+#     print(get_post(message))
