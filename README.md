@@ -13,8 +13,9 @@ data_extract：function api
 - 赋予LLM的接口调用能力，实现工业数据分析
 
 backend
-- 后端api数据调用：python main.py
 - 数据接口：✅
 - 数据表存储：✅
 - 数据表查询：✅
 
+main.py 启动api服务
+chat_show.py 启动chat界面，展示工具调用的能力

@@ -35,13 +35,6 @@ tools = [
 ]
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True) 
 agent: AgentExecutor = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
-# agent = initialize_agent(  
-#     tools,  
-#     llm,  
-#     agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,  
-#     verbose=True,  
-#     memory=memory  
-# )  
 
 def chat(query: str, history: list[list[str]] = None):
     # print(response["intermediate_steps"])
