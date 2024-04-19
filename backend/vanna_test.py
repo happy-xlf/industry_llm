@@ -54,7 +54,7 @@ class MyCustomLLM(VannaBase):
     def submit_prompt(self, prompt, **kwargs) -> str:
         # Implement here
         # See an example implementation here: https://github.com/vanna-ai/vanna/blob/main/src/vanna/mistral/mistral.py
-        url = "http://101.42.149.139:9999/multi_chat/"
+        url = "http://localhost:9999/multi_chat/"
         body = {
             "text": prompt
         }

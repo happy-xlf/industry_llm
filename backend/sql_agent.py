@@ -56,8 +56,6 @@ def chat(query, history: list[list[str]] = None):
     sql_result = f"{res['intermediate_steps'][3]}"
     answer = f"\n{res['result']}"
 
-    human_input = answer + "\n请将上面的结果用图表展示"
-
     response = ""
     for character in (sql_cmd,sql_result,answer):
         response += character + "\n"
